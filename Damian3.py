@@ -56,16 +56,33 @@ else:
 
 #Ülesandeid 5
 
-#firma = "National Airline"
-#laius = 40
 
-#number = input("Sisesta lennu number:")
-#Väljumislennujaama = input("sisesta Väljumislennujaama kood:")
-#Sihtlennujaama = input ("sisesta Sihtlennujaama kood:")
-#väljumise_aeg = input("sisesta väljumise aeg(TT:MM):")
+LENDUFIRMA = "NATIONAL AIRLINE"
+LAIUS = 40
 
-#tunnid = int(väljumise_aeg)
-#minutid =int(väljumise_aeg)
+lennu_number = input("Sisesta lennu number: ")
+valjumis_kood = input("Sisesta väljumislennujaama kood: ")
+siht_kood = input("Sisesta sihtlennujaama kood: ")
+valjumisaeg = input("Sisesta väljumise aeg (TT:MM): ")
+
+
+tunnid, minutid = map(int, valjumisaeg.split(":"))
+total_min = tunnid * 60 + minutid
+
+total_min += 105
+
+saab_tunnid = total_min // 60
+saab_minutid = total_min % 60
+
+saabumisaeg = str(saab_tunnid).zfill(2) + ":" + str(saab_minutid).zfill(2)
+
+print("*" * LAIUS)
+print(LENDUFIRMA.center(LAIUS))
+print("*" * LAIUS)
+print("Lennunumber:", lennu_number)
+print("Väljumine:", valjumis_kood, "Aeg:", valjumisaeg)
+print("Sihtkoht:", siht_kood, "Saabumine:", saabumisaeg)
+print("*" * LAIUS)
 
 
 
@@ -73,4 +90,5 @@ else:
  
  
  
+
        
